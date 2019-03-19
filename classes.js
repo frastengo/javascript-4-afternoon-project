@@ -193,17 +193,18 @@ class Machine {
   }
   makeWidgets(num){
     this.widgets_made_count += num
-    this.wear_and_tear_count += 1
+    this.wear_and_tear_count = this.widgets_made_count/50
   }
   fixMachine(){
     this.needs_reboot = true
   }
   reboot(){
-    () => {
+    return () => {
       this.wear_and_tear_count -= 10
       this.needs_reboot = false
     }
-
+  }
+  rebootComplete(){
   }
 }
 
